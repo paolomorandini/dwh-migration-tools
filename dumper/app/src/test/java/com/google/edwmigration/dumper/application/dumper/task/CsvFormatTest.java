@@ -40,8 +40,16 @@ public class CsvFormatTest {
     private static final Logger LOG = LoggerFactory.getLogger(CsvFormatTest.class);
 
     @Test
-    public void testCsvRoundTrip() throws IOException {
-        Object[] data = {"a", "b ", " c", " d "};
+    public void testWhitespaceCsvRoundTrip() throws IOException {
+        testCsvRoundTrip(new Object[]{"a", "b ", " c", " d "});
+    }
+
+    @Test
+    public void testNullCsvRoundTrip() throws IOException {
+        testCsvRoundTrip(new Object[]{"a", "b ", " c", "", null});
+    }
+
+    public void testCsvRoundTrip(Object[] data) throws IOException {
         StringBuilder buf = new StringBuilder();
         try (CSVPrinter printer = new CSVPrinter(buf, AbstractTask.FORMAT)) {
             printer.printRecord(data);

@@ -47,7 +47,7 @@ public abstract class AbstractTask<T> implements Task<T> {
             .withTrim(false)
             // This ignores whitespace OUTSIDE quotes when lexing.
             .withIgnoreSurroundingSpaces()
-            .withQuoteMode(QuoteMode.MINIMAL);
+            .withQuoteMode(QuoteMode.ALL_NON_NULL);
 
     private final String targetPath;
     protected Condition[] conditions = Condition.EMPTY_ARRAY;
