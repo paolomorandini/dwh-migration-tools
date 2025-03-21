@@ -70,7 +70,13 @@ public interface SnowflakeMetadataDumpFormat {
       TableName,
       OrdinalPosition,
       ColumnName,
-      DataType
+      DataType,
+      IsNullable,
+      ColumnDefault,
+      CharacterMaximumLength,
+      NumericPrecision,
+      NumericScale,
+      Comment
     }
   }
 
